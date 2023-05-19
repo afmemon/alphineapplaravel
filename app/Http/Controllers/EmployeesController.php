@@ -67,8 +67,8 @@ class EmployeesController extends Controller
         ]);
 
 
-        $rr = [];
         $rankedScores = collect($scores)->sortByDesc('score')->groupBy('score')->values();
+
 
         $rankedTeams = $rankedScores->map(function ($group) {
             return collect($group)->pluck('team')->toArray();
